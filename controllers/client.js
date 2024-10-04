@@ -17,9 +17,24 @@ const sendMessage = async (req, res) => {
   const info = await transporter.sendMail({
     from: "harisali2928@gmail.com", // sender address
     to: "aliharis2739@gmail.com", // list of receivers
-    subject: "User Info ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    subject: "Client Info ✔", // Subject line
+    // text: "Hello world?", // plain text body
+    html: `<h1>User Info</h1>
+      <p>This user wants to get your service</p>
+      <h2>Here's user information</h2>
+        <div style="display:flex; justify-content:center; margin:5px 0; align-items:center; gap:5px;">
+          <div>First name:</div><div style="font-weight:bold; margin-left:10px;">${data.firstName}</div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:5px 0; align-items:center; gap:5px;">
+          <div>Last name:</div><div style="font-weight:bold; margin-left:10px;">${data.lastName}</div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:5px 0; align-items:center; gap:5px;">
+          <div>Email:</div><div style="font-weight:bold; margin-left:10px;">${data.email}</div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:5px 0; align-items:center; gap:5px;">
+          <div>Address:</div><div style="font-weight:bold; margin-left:10px;">${data.address}</div>
+        </div>
+    `, // html body
   });
   console.log("Email sent successfully");
   res.status(201).json({
