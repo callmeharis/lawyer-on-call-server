@@ -12,9 +12,9 @@ const ClientSchema = new mongoose.Schema({
     type: String,
     required: [true, "Email name is required field"],
   },
-  address: {
+  message: {
     type: String,
-    required: [true, "Address is required field"],
+    required: [true, "message is required field"],
   },
 });
 

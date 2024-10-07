@@ -1,9 +1,9 @@
 const nodemailer = require("nodemailer");
 const Client = require("../models/Client");
 const sendMessage = async (req, res) => {
-  const { firstName, lastName, email, address } = req.body;
+  const { firstName, lastName, email, message } = req.body;
   // try {
-  const data = await Client.create({ firstName, lastName, email, address });
+  const data = await Client.create({ firstName, lastName, email, message });
   const transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
     port: 587,
@@ -32,7 +32,7 @@ const sendMessage = async (req, res) => {
           <div>Email:</div><div style="font-weight:bold; margin-left:10px;">${data.email}</div>
         </div>
         <div style="display:flex; justify-content:center; margin:5px 0; align-items:center; gap:5px;">
-          <div>Address:</div><div style="font-weight:bold; margin-left:10px;">${data.address}</div>
+          <div>Message:</div><div style="font-weight:bold; margin-left:10px;">${data.message}</div>
         </div>
     `, // html body
   });
